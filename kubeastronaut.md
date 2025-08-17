@@ -38,6 +38,27 @@ The [Open Container Initiative](https://opencontainers.org/) (OCI) is an industr
 
 A container image is much like a cooking recipe for baking "a specific container", as it defines the ingredients (files, dependencies, etc) and how to use them (run them). This is a [specification defined by OCI](https://specs.opencontainers.org/image-spec/) and even though an "image" sounds much like a binary, a *container image* is really an archive containing a couple of *JSON* files with metadata and definitions of the internal structure (manifest and config), and a bunch of -clearly identified (by checksum)- layers as binary (tarball) files, which contain the files for the container.
 
+<!-- markdownlint-disable-next-line -->
+```
++-------------------------------------------------------+
+|                 OCI Container Image                   |
+|                                                       |
+|  +--------------------+                               |
+|  |####################|                               |
+|  |####################|           <manifest.json>     |
+|  |#####Layer 2########|                               |
+|  |####################|                               |
+|  +--------------------+                               |
+|  +----------------------------+    <config.json>      |
+|  |############################|                       |
+|  |#####Layer 1################|                       |
+|  |############################|                       |
+|  |############################|                       |
+|  +----------------------------+                       |
+|                                                       |
++-------------------------------------------------------+
+```
+
 Each file within an image is annotated with a *media type* marker which defines which kind of file it is, out of a series of supported file types. This is important later on, when distributing images and files over the OCI distribution protocol. For example:
 
 ```json
