@@ -36,30 +36,34 @@ The [Open Container Initiative](https://opencontainers.org/) (OCI) is an industr
 
 ### Container images - The recipes
 
-A container image is much like a cooking recipe for baking "a specific container", as it defines the ingredients (files, dependencies, etc) and how to use them (run them). This is a [specification defined by OCI](https://specs.opencontainers.org/image-spec/) and even though an "image" sounds much like a binary, a *container image* is really an archive containing a couple of *JSON* files with metadata and definitions of the internal structure (manifest and config), and a bunch of -clearly identified (by checksum)- layers as binary (tarball) files, which contain the files for the container.
+A *container image* is an *artifact* that acts like a cooking recipe for baking "a specific container", as it defines the ingredients (files) and how to use them (run them). This is a [specification defined by OCI](https://specs.opencontainers.org/image-spec/) and even though an "image" sounds much like a binary, a *container image* is really an archive containing a couple of *JSON* files with metadata and definitions of the internal structure (manifest and config), and a bunch of -clearly identified (by checksum)- layers as binary (tarball) files, which contain the files for the container.
+
+Note: The multiple references by checksum of the components of an image are part of what OCI calls [descriptors](https://github.com/opencontainers/image-spec/blob/main/descriptor.md) and is purposely structured as a [Hash/Merkle tree](https://github.com/opencontainers/image-spec/blob/main/descriptor.md), which is great for validating data blocks transferred over the network. After all, each layer has its [checksum](https://en.wikipedia.org/wiki/Checksum) (go-to for data integrity validations) calculated, and checksums are unique, so exchanging checksums in advance allows for verifying content upon receival. The sha256 checksum of layers and files on an OCI image is called *digest*.
+
+Visual representation:
 
 <!-- markdownlint-disable-next-line -->
 ```
 +-------------------------------------------------------+
-|                 OCI Container Image                   |
+|           OCI Container Image (Tarball)               |
 |                                                       |
 |  +--------------------+                               |
-|  |####################|                               |
-|  |####################|           <manifest.json>     |
-|  |#####Layer 2########|                               |
+|  |#### Layer 2 #######|                               |
+|  |####################|          < manifest.json >    |
+|  |#### Tarball #######|           < config.json >     |
 |  |####################|                               |
 |  +--------------------+                               |
-|  +----------------------------+    <config.json>      |
+|  +----------------------------+                       |
+|  |#### Layer 1 ###############|                       |
 |  |############################|                       |
-|  |#####Layer 1################|                       |
-|  |############################|                       |
+|  |##### Tarball ##############|                       |
 |  |############################|                       |
 |  +----------------------------+                       |
 |                                                       |
 +-------------------------------------------------------+
 ```
 
-Each file within an image is annotated with a *media type* marker which defines which kind of file it is, out of a series of supported file types. This is important later on, when distributing images and files over the OCI distribution protocol. For example:
+Each file within an image is annotated with a *media type* marker which defines which kind of file it is, out of a series of supported file types. This is important later on, when distributing images and files over the OCI distribution protocol (see [distribution-spec](https://specs.opencontainers.org/distribution-spec/?v=v1.0.0)). For example:
 
 ```json
 {
