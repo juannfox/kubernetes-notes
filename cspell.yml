@@ -1,0 +1,21 @@
+---   # https://cspell.org/docs/Configuration/properties
+ignoreWords:
+  - codespell
+  - kubeastronaut
+  - KCNA
+  - CKNA
+  - CKA
+  - KCNS
+  - CKAD
+  - Merkle
+  - myimage
+  - containerd
+  - opencontainers
+  - buildkit
+  - rootfs
+  - xvzf
+  - nawk
+  - Kata
+  - FQCN
+  - Fairwinds
+  - Karpenter
