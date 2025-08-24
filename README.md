@@ -1,6 +1,6 @@
 # Kubeastronaut notes
 
-This is a series of notes (dated 2025), concepts and ideas on the topic of Kubernetes, written by a DevOps engineer on their road to completion of the Kubeastronaut certification path (which includes KCNA, KCNS, CKAD, CKA and CKS certifications).
+This is a series of notes (dated 2025), concepts and ideas on the topic of [Kubernetes](https://kubernetes.io/), written by a *DevOps* engineer on their road to completion of the [Kubeastronaut](https://www.cncf.io/training/kubestronaut/) certification path (which includes KCNA, KCNS, CKAD, CKA and CKS certifications).
 
 A previous version of thi document, dated 2022 (back when I took my first CKA exam), is also [available on this repository](2022-cka-notes-es.md), but written in Spanish and authored by a less experienced version of myself.
 
@@ -25,6 +25,4 @@ My name is Juan Fox, from Argentina, and as of today (August 2025), when I start
 
 ## Auto-scaling
 
-This section covers automatic *scaling*, a trait (and kindness) of Kubernetes that allows for elastic workloads, at both the cluster and pod levels:
-
-[Auto-scaling](autoscaling.md)
+The [Auto-scaling section](autoscaling.md) covers automatic *scaling*, a trait (and kindness) of Kubernetes that allows for elastic workloads, at both the cluster and pod levels.
