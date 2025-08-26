@@ -19,3 +19,7 @@ ignoreWords:
   - FQCN
   - Fairwinds
   - Karpenter
+  - Legos
+  - PAAS
+  - Hightower
+  - Kubeadm
