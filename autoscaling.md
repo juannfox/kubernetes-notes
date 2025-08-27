@@ -24,6 +24,11 @@ Automatic scaling in Kubernetes is done through *controllers* (extensions of van
   - Horizontal scaling with *HPA*
   - Vertical scaling with *VPA*
 
+The following diagram depicts the scaling options in Kubernetes:
+
+<!-- markdownlint-disable-next-line -->
+<img src="media/autoscaling.png" alt="Autoscaling diagram">
+
 ## Vertical Pod Autoscaler (VPA)
 
 It is an official offering, just like *Cluster Autoscaler*, but it is not as stable or adopted as *HPA* (its horizontal counterpart), the main drawback being pod restarts on resource edits. As of Kubernetes v1.33 though, there's a beta function for updates in-place and VPA is already offering that as beta too, so in the future it might be stable.

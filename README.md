@@ -5,7 +5,7 @@ This is a series of notes (dated 2025), concepts and ideas on the topic of [Kube
 A previous version of this document, dated 2022 (back when I took my first CKA exam), is also [available on this repository](2022-cka-notes-es.md), but written in Spanish and authored by a less experienced version of myself.
 
 <!-- markdownlint-disable-next-line -->
-<img src="https://training.linuxfoundation.org/wp-content/uploads/2024/04/kubestronaut-stacked-color.png" alt="Kubeastronaut" width="100" height="100">
+<img src="media/kubeastronaut.png" alt="Kubeastronaut" width="100" height="100">
 
 ## Index
 
@@ -23,12 +23,13 @@ A previous version of this document, dated 2022 (back when I took my first CKA e
     - [The Kubernetes ecosystem - Extensibility](#the-kubernetes-ecosystem---extensibility)
   - [Containers](#containers)
   - [Auto-scaling](#auto-scaling)
+  - [API resources](#api-resources)
 
 ## Epilogue
 
 My name is Juan Fox, from Argentina, and as of today (August 2025), when I start jotting down these notes, I am a Certified Kubernetes Administrator with around 4 years of experience with this software, and around 8 years in IT. For a while now, I've been wanting to deepen my knowledge of Kubernetes, this career-changing platform that I love, and the Kubeastronaut certification pack is a great and ambitious way to do that.
 
-I must start my notes with a huge disclaimer: I'm a Kubernetes fanatic and I fear some of that appreciation for the technology might stem some bias into my own writings. I also am but a mundane DevOps Engineer collecting his own thoughts, based on his own experience, so take this with a grain of salt. If you do take time to read this, I appreciate it and I hope it helps, but I have to admit I mostly write these recollections for myself, as I find it to be the best way to learn (that is, to try and explain what you've learned).
+I must start my notes with a huge disclaimer: I'm a Kubernetes fanatic and I fear my appreciation for the technology might stem bias into my writings. I also am but a mundane DevOps Engineer collecting his own thoughts, based on his own experience, so take this with a grain of salt. If you do take time to read this, I appreciate it and I hope it helps, but I have to admit I mostly write these recollections for myself, as I find it to be the best way to learn (that is, to try and explain what you've learned).
 
 ## Kubernetes
 
@@ -38,7 +39,7 @@ The original Kubernetes project incubated by [Google](https://about.google), but
 
 ### How Kubernetes came to be
 
-The following is my own collection of the history behind Kubernetes, with its own biases. A great, very inspiring, documentary on Kubernetes was put together by the **Honeypot.io** team (now acquired by [Xing](https://www.xing.com/)), and is [available on their Youtube channel](https://www.youtube.com/watch?v=BE77h7dmoQU); it is highly recommended.
+The following is my own collection of the history behind Kubernetes. A great, very inspiring, documentary on Kubernetes was put together by the **Honeypot.io** team (now acquired by [Xing](https://www.xing.com/)), and is [available on their Youtube channel](https://www.youtube.com/watch?v=BE77h7dmoQU); it is highly recommended.
 
 #### Containers go way back
 
@@ -89,3 +90,16 @@ Not all extensions are luxury (such as automatic public DNS management), on the 
 ## Auto-scaling
 
 The [Auto-scaling section](autoscaling.md) covers automatic *scaling*, a trait (and kindness) of Kubernetes that allows for elastic workloads, at both the cluster and pod levels.
+
+## API resources
+
+The `kubectl api-resources` can be used to list all API resources in a given cluster (see [ref](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_api-resources/)). For example, on my v1.33 lab environment:
+
+> NAME                               SHORTNAMES      APIVERSION                             NAMESPACED   KIND
+> bindings                                           v1                                     true         Binding
+> componentstatuses                  cs              v1                                     false        ComponentStatus
+> configmaps                         cm              v1                                     true         ConfigMap
+> endpoints                          ep              v1                                     true         Endpoints
+> events                             ev              v1                                     true         Event
+> limitranges                        limits          v1                                     true         LimitRange
+> ...redacted...
