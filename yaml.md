@@ -62,6 +62,29 @@ myComplexList:
       discountPercent: 0.05
       maxQuantity: 1
 
+# Below are multiline strings
+multiLineWithLineBreaks: |
+  this is a multiline
+  string represented as you read it
+
+multiLineWithLineBreaksNoPadding: |-
+  this is also multiline, but adding the
+  dash removes the appended newline at the end
+  of the string
+
+singleLineStringDefinedOverMultipleLines: >
+  this string will
+  end up on a single line
+  separated by spaces
+
+singleLineStringDefinedOverMultipleLinesNoPadding: >-
+  this is also a space-separated, single-line
+  string but without the added newline at the end
+  of the string
+
+singleLineStringMultiLineRaw: "thisIsForStringsThatCantBearSpaces \
+  orNewLinesAndNeedToBeAllTogetherLikeAnURL"
+
 # It is good practice to leave empty newlines at the end of a file
 
 ```
