@@ -24,9 +24,9 @@ A previous version of this document, dated 2022 (back when I took my first CKA e
     - [Prerequisite concepts](#prerequisite-concepts)
       - [YAML, the representation language for Kubernetes](#yaml-the-representation-language-for-kubernetes)
       - [Containers](#containers)
-  - [Auto-scaling](#auto-scaling)
   - [The Kubernetes API](#the-kubernetes-api)
     - [API resources](#api-resources)
+  - [Auto-scaling](#auto-scaling)
 
 ## Epilogue
 
@@ -92,15 +92,11 @@ Before delving into Kubernetes, there's a few concepts that it is very useful to
 
 #### YAML, the representation language for Kubernetes
 
-See the [dedicated YAML section](yaml.md) to understand that this intriguing language is about and it is relevant for Kubernetes.
+See the [dedicated YAML section](yaml.md) to understand what this intriguing language is about and it is relevant for Kubernetes.
 
 #### Containers
 
 *Containers* are one of the core components of **Kubernetes** and I expand on these in the [Containers section](containers.md).
-
-## Auto-scaling
-
-The [Auto-scaling section](autoscaling.md) covers automatic *scaling*, a trait (and kindness) of Kubernetes that allows for elastic workloads, at both the cluster and pod levels.
 
 ## The Kubernetes API
 
@@ -118,6 +114,8 @@ E.g.: Pod is a resource, `kube-proxy-j9sbt` is a Pod Object and `coredns-5d78c98
 
 The `kubectl api-resources` can be used to list all API resources in a given cluster (see [ref](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_api-resources/)). For example, on my v1.33 lab environment:
 
+<!-- markdownlint-disable-next-line -->
+```
 > NAME                               SHORTNAMES      APIVERSION                             NAMESPACED   KIND
 > bindings                                           v1                                     true         Binding
 > componentstatuses                  cs              v1                                     false        ComponentStatus
@@ -126,5 +124,10 @@ The `kubectl api-resources` can be used to list all API resources in a given clu
 > events                             ev              v1                                     true         Event
 > limitranges                        limits          v1                                     true         LimitRange
 > ...redacted...
+```
 
 Resources have *shortnames*, which are aliases that come in handy when the resource name is lengthy and one is performing multiple operations on it. An example of this is visible in the above example output, with the ConfigMap's alias being "cm".
+
+## Auto-scaling
+
+The [Auto-scaling section](autoscaling.md) covers automatic *scaling*, a trait (and kindness) of Kubernetes that allows for elastic workloads, at both the cluster and pod levels.

@@ -1,8 +1,8 @@
 # YAML language
 
-[YAML](https://yaml.org/), which stands for "YAML Ain't Markup Language" is a data serialization language used by Kubernetes for representing *resources*, in documents normally known as *manifests*. It is very similar to the well-known [JSON](https://www.json.org/json-es.html) ("JavaScript Object Notation") normally used in HTTP RESTful APIs; both of these are languages that intend to be great at representing structured and unstructured data in a way that's easily honored by transmitters and effortlessly interpreted by receivers. In fact, YAML is considered to be a JSON superset and data can be seamlessly converted between these two, to the point that the `kubectl` CLI can work with both.
+[YAML](https://yaml.org/), which stands for "YAML Ain't Markup Language", is a data serialization language used by Kubernetes for representing *resources*, in documents normally known as *manifests*. It is very similar to the well-known [JSON](https://www.json.org/json-es.html) ("JavaScript Object Notation") normally used in HTTP RESTful APIs; both of these are languages that intend to be great at representing structured and unstructured data in a way that's easily honored by transmitters and effortlessly interpreted by receivers. In fact, YAML is considered to be a JSON superset and data can be seamlessly converted between these two, to the point that the `kubectl` CLI can work with both.
 
-## Brief hitory
+## Brief history
 
 YAML has been around for a while (since 2004) and is actually tool-agnostic (which makes sense given its purpose). It has been adopted by tools such as Ansible, Prometheus, etc, and it is closely related to Python when it comes to the primary data types and structures it can represent, and it even uses its indentation style.
 
