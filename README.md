@@ -21,9 +21,12 @@ A previous version of this document, dated 2022 (back when I took my first CKA e
     - [Kubernetes and its many flavors](#kubernetes-and-its-many-flavors)
     - [Kubernetes for the brave](#kubernetes-for-the-brave)
     - [The Kubernetes ecosystem - Extensibility](#the-kubernetes-ecosystem---extensibility)
-  - [Containers](#containers)
+    - [Prerequisite concepts](#prerequisite-concepts)
+      - [YAML, the representation language for Kubernetes](#yaml-the-representation-language-for-kubernetes)
+      - [Containers](#containers)
   - [Auto-scaling](#auto-scaling)
-  - [API resources](#api-resources)
+  - [The Kubernetes API](#the-kubernetes-api)
+    - [API resources](#api-resources)
 
 ## Epilogue
 
@@ -83,7 +86,15 @@ There's a huge ecosystem of software for Kubernetes that achieves a variety of d
 
 Not all extensions are luxury (such as automatic public DNS management), on the contrary, some of those are required for Kubernetes to run properly. Great example of this are the [network plugins](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) (CNI), responsible for pod networking at the node level, and [CoreDNS](https://coredns.io/), a very solid in-cluster DNS solution to replace Kube-DNS.
 
-## Containers
+### Prerequisite concepts
+
+Before delving into Kubernetes, there's a few concepts that it is very useful to internalize, described in the following sub-sections.
+
+#### YAML, the representation language for Kubernetes
+
+See the [dedicated YAML section](yaml.md) to understand that this intriguing language is about and it is relevant for Kubernetes.
+
+#### Containers
 
 *Containers* are one of the core components of **Kubernetes** and I expand on these in the [Containers section](containers.md).
 
@@ -91,7 +102,19 @@ Not all extensions are luxury (such as automatic public DNS management), on the 
 
 The [Auto-scaling section](autoscaling.md) covers automatic *scaling*, a trait (and kindness) of Kubernetes that allows for elastic workloads, at both the cluster and pod levels.
 
-## API resources
+## The Kubernetes API
+
+The API behind Kubernetes is the "contract" between the different server-side and client-side components of the platform. It is an HTTP RESTful API that respects the typical CRUD actions (POST, GET, PUT, DELETE HTTP *verbs*) on its *resources*, interfaced through *Endpoints*. The API is very well organized into *nested APIs* (or sub-APIs, if I may) that are separated by *groups* (similar to categories), *versions* (for versioning, excuse the redundancy) and, finally, by *resource type*. For example, the URI for the Deployment resource Endpoint is: `/apis/apps/v1/deployments`.
+
+Source: [API Concepts](https://kubernetes.io/docs/reference/using-api/api-concepts/).
+
+### API resources
+
+*Resources* in Kubernetes define an abstract representation of a cluster entity, whereas an instance of a resource is called an *object* and a group of objects is called a *collection*; the schema that defines what a given resource is like is called *kind* and can be represented both as YAML or JSON.
+
+<!-- markdownlint-disable-next-line -->
+/* cspell:disable-next-line */
+E.g.: Pod is a resource, `kube-proxy-j9sbt` is a Pod Object and `coredns-5d78c9869d-sn8x9, coredns-5d78c9869d-zxkrb`
 
 The `kubectl api-resources` can be used to list all API resources in a given cluster (see [ref](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_api-resources/)). For example, on my v1.33 lab environment:
 
@@ -103,3 +126,5 @@ The `kubectl api-resources` can be used to list all API resources in a given clu
 > events                             ev              v1                                     true         Event
 > limitranges                        limits          v1                                     true         LimitRange
 > ...redacted...
+
+Resources have *shortnames*, which are aliases that come in handy when the resource name is lengthy and one is performing multiple operations on it. An example of this is visible in the above example output, with the ConfigMap's alias being "cm".

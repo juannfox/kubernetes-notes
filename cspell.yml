@@ -27,3 +27,4 @@ ignoreWords:
   - limitranges
   - SHORTNAMES
   - APIVERSION
+  - coredns
