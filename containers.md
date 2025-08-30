@@ -261,7 +261,7 @@ And it is apparent now how those can be extracted in sequential order and be agg
 
 A container is ran by a *container runtime*, a software that can execute *container images* based on a specification they contain (on how to run them). So the *runtime* is the platform on top of which *containers* are run, and the most popular offering is [runc](https://github.com/opencontainers/runc). Other options are [Kata](https://katacontainers.io/) (which runs an hybrid between a container and a VM) and [gVisor](https://gvisor.dev/docs/) (which provides a sandbox-like interface between containers and their hosts), the two of which are considered more secure at the cost of lower performance.
 
-To then manage those containers, a *container engine* is used, which simplifies running many containers on top of a *runtime* by providing us with an interface. This is where names like [Docker](https://www.docker.com/), [Podman](https://podman.io/) and [Containerd](https://containerd.io/) come in as offerings, but still no mention of [Kubernetes](https://kubernetes.io/es/), as the latter performs *container orchestration* on top of an engine.
+To then manage those containers, a *container engine* is used, which simplifies running many containers on top of a *runtime* by providing us with an interface. This is where names like [Docker](https://www.docker.com/), [Containerd](https://containerd.io/) and [CRI-O](https://cri-o.io/) (incubated by IBM RedHat) come in as offerings, but still no mention of [Kubernetes](https://kubernetes.io/es/), as the latter performs *container orchestration* on top of an engine.
 
 ### Logging
 

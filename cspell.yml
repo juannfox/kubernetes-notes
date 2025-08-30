@@ -28,3 +28,6 @@ ignoreWords:
   - SHORTNAMES
   - APIVERSION
   - coredns
+  - crictl
+  - kubelet
+  - crio
