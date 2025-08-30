@@ -4,7 +4,7 @@
 
 ## Brief history
 
-YAML has been around for a while (since 2004) and is actually tool-agnostic (which makes sense given its purpose). It has been adopted by tools such as Ansible, Prometheus, etc, and it is closely related to Python when it comes to the primary data types and structures it can represent, and it even uses its indentation style.
+YAML has been around for a while (since 2004) and is actually tool-agnostic (which makes sense given its purpose). It has been adopted by tools such as Ansible, Gitlab-CI, Github Actions, etc, and it is closely related to Python when it comes to the primary data types and structures it can represent, and it even uses its indentation style.
 
 ## Syntax
 

@@ -54,8 +54,3 @@ cp etcd-$ETCD_VERSION-linux-$ARCH/etcdutl /usr/local/bin/
 swapoff -a
 modprobe br_netfilter
 sysctl -w net.ipv4.ip_forward=1
-
-# Install grpcurl
-#curl -LO https://github.com/fullstorydev/grpcurl/releases/download/v1.9.3/grpcurl_1.9.3_linux_arm64.tar.gz
-#tar -xvzf grpcurl_1.9.3_linux_arm64.tar.gz
-#mv grpcurl /usr/local/bin
